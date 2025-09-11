@@ -7,12 +7,12 @@ export const sidebar = [
     {
         label : 'Upcoming',
         path:'/upcoming',
-        imgurl : '/icons/Upcoming.svg'
+        imgurl : '/icons/upcoming.svg'
     },
     {
         label : 'Previous',
         path:'/previous',
-        imgurl : '/icons/Previous.svg'
+        imgurl : '/icons/previous.svg'
     },
     {
         label : 'Recordings',
