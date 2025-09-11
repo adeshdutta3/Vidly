@@ -66,5 +66,3 @@ The goal of this project is to demonstrate a **scalable, real-time architecture*
 
 ---
 
-## 🗂️ Project Structure
-
