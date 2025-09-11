@@ -1,7 +1,5 @@
-import { Button } from "@/components/ui/button";
-import MeetingCard from "@/components/ui/MeetingCard";
+
 import Meetingtypelist from "@/components/ui/Meetingtypelist";
-import Image from "next/image";
 
 
 

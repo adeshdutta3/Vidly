@@ -7,7 +7,6 @@ import React, { useEffect, useState } from 'react'
 import MeetingCard from './MeetingCard';
 import Loader from './Loader';
 import { useToast } from '@/hooks/use-toast';
-import { title } from 'process';
 
 const CallList = ({type}:{type : 'upcomming' | 'ended' | 'recording'}) => {
     const{endedCalls,upcomingCalls,callRecordings,isLoaded} = useGetCall();

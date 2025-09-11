@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "./button";
 import { avatarImages } from "@/constants";
 import { useToast } from "@/hooks/use-toast"; 
-import { useRouter } from "next/navigation";
 
 interface MeetingCardProps {
   title: string;

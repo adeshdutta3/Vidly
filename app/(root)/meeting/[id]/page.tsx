@@ -4,7 +4,7 @@ import Meetingroom from '@/components/ui/Meetingroom';
 import Meetingsetup from '@/components/ui/Meetingsetup';
 import { useGetcall } from '@/hooks/usegetcallbyid';
 import { useUser } from '@clerk/nextjs'
-import { StreamCall, StreamTheme, useCallStateHooks } from '@stream-io/video-react-sdk';
+import { StreamCall, StreamTheme } from '@stream-io/video-react-sdk';
 import { useParams, useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
