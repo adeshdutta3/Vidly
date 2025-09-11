@@ -5,8 +5,17 @@ import Meetingtypelist from "@/components/ui/Meetingtypelist";
 
 export default function Home() {
   const now = new Date();
-  const time = now.toLocaleTimeString('IST', { hour:'2-digit', minute : '2-digit'});
-  const date = (new Intl.DateTimeFormat('IST',{dateStyle : 'full'})).format(now);
+
+  const time = now.toLocaleTimeString('en-IN', { 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    timeZone: 'Asia/Kolkata' 
+  });
+
+  const date = new Intl.DateTimeFormat('en-IN', { 
+    dateStyle: 'full', 
+    timeZone: 'Asia/Kolkata' 
+  }).format(now);
   return (
     <section className="flex flex-col size-full gap-10 text-white">
       <div className="w-full h-[300px] rounded-[20px] bg-hero bg-cover">
