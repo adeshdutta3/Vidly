@@ -8,17 +8,31 @@ export default function Home() {
   const [now, setNow] = useState(new Date());
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setNow(new Date());
-    }, 1000); // update every second
+    // Update immediately
+    setNow(new Date());
 
-    return () => clearInterval(timer); // cleanup on unmount
-  }, []);
+    // Calculate how many ms remain until the next minute starts
+    const msToNextMinute = (60 - now.getSeconds()) * 1000;
+
+    // First timeout: trigger exactly at the next minute
+    const timeout = setTimeout(() => {
+      setNow(new Date());
+
+      // Then set an interval every minute
+      const interval = setInterval(() => {
+        setNow(new Date());
+      }, 60 * 1000);
+
+      // Cleanup interval when unmounted
+      return () => clearInterval(interval);
+    }, msToNextMinute);
+
+    return () => clearTimeout(timeout);
+  }, [now]);
 
   const time = now.toLocaleTimeString("en-IN", {
     hour: "2-digit",
     minute: "2-digit",
-    second: "2-digit",
     timeZone: "Asia/Kolkata",
   });
 
