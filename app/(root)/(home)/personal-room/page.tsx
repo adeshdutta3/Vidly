@@ -31,7 +31,7 @@ const Personal = () => {
       link : ''
   });
   const router = useRouter()
-  const meetingUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}`;
+  const meetingUrl = `https://${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}`;
     const newMeetingRoom=async ()=>{
       if(!client||!user) return; 
       try {
