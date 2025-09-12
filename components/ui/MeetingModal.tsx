@@ -1,9 +1,15 @@
-"use client";
-import { ReactNode } from "react";
-import { Dialog, DialogContent } from "./dialog";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { Button } from "./button";
+'use client';
+
+import { ReactNode } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from './dialog';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { Button } from './button';
 
 interface MeetingModalProps {
   isOpen: boolean;
@@ -27,7 +33,6 @@ const MeetingModal = ({
   children,
   handleClick,
   buttonText,
-  instantMeeting,
   image,
   buttonClassName,
   buttonIcon,
@@ -35,34 +40,37 @@ const MeetingModal = ({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="flex w-full max-w-[520px] flex-col gap-6 border-none bg-dark-1 px-6 py-9 text-white">
-        <div className="flex flex-col gap-6">
-          {image && (
-            <div className="flex justify-center">
-              <Image src={image} alt="checked" width={72} height={72} />
-            </div>
+        {/* Required for accessibility */}
+        <DialogTitle className={cn('text-3xl font-bold leading-[42px]', className)}>
+          {title}
+        </DialogTitle>
+
+        {/* Hidden but provides description for screen readers */}
+        <DialogDescription className="sr-only">
+          Meeting dialog content and actions
+        </DialogDescription>
+
+        {image && (
+          <div className="flex justify-center">
+            <Image src={image} alt="checked" width={72} height={72} />
+          </div>
+        )}
+
+        {children}
+
+        <Button
+          className={cn(
+            'bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0',
+            buttonClassName
           )}
-          <h1 className={cn("text-3xl font-bold leading-[42px]", className)}>
-            {title}
-          </h1>
-          {children}
-          <Button
-            className={
-              "bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0"
-            }
-            onClick={handleClick}
-          >
-            {buttonIcon && (
-              <Image
-                src={buttonIcon}
-                alt="button icon"
-                width={13}
-                height={13}
-              />
-            )}{" "}
-            &nbsp;
-            {buttonText || "Schedule Meeting"}
-          </Button>
-        </div>
+          onClick={handleClick}
+        >
+          {buttonIcon && (
+            <Image src={buttonIcon} alt="button icon" width={13} height={13} />
+          )}
+          &nbsp;
+          {buttonText || 'Schedule Meeting'}
+        </Button>
       </DialogContent>
     </Dialog>
   );

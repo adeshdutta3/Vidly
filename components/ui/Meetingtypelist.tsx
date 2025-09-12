@@ -66,14 +66,34 @@ const Meetingtypelist = () => {
     }
   return (
     <section className='grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4'>
-        <HomeCard  color='bg-orange-1' title='New Meeting' handleclick={()=>{setmeetingstate('isInstantmeeting')}}
-         imgUrl='/icons/add-meeting.svg' description='Start at an instant'></HomeCard>
-        <HomeCard color='bg-blue-1' title='Join Meeting' handleclick={()=>{setmeetingstate('isJoiningmeeting')}}
-         imgUrl='/icons/join-meeting.svg' description='via invitation link'></HomeCard>
-        <HomeCard color='bg-purple-1' title='Schedule Meeting' handleclick={()=>{setmeetingstate('isSchedulemeeting')}}
-        imgUrl='/icons/schedule.svg' description='Plan your meeting'></HomeCard>
-        <HomeCard color='bg-yellow-1' title='View Recordings' handleclick={()=>{router.push('/recordings')}}
-        imgUrl='/icons/recordings.svg' description='Check out your recordings'></HomeCard>
+        <HomeCard
+            color="bg-orange-1"
+            title="New Meeting"
+            handleClick={() => setmeetingstate('isInstantmeeting')}
+            imgUrl="/icons/add-meeting.svg"
+            description="Start at an instant"
+        />
+        <HomeCard
+            color="bg-blue-1"
+            title="Join Meeting"
+            handleClick={() => setmeetingstate('isJoiningmeeting')}
+            imgUrl="/icons/join-meeting.svg"
+            description="via invitation link"
+        />
+        <HomeCard
+            color="bg-purple-1"
+            title="Schedule Meeting"
+            handleClick={() => setmeetingstate('isSchedulemeeting')}
+            imgUrl="/icons/schedule.svg"
+            description="Plan your meeting"
+        />
+        <HomeCard
+            color="bg-yellow-1"
+            title="View Recordings"
+            handleClick={() => router.push('/recordings')}
+            imgUrl="/icons/recordings.svg"
+            description="Check out your recordings"
+        />
         {!calldetail ? (
             <MeetingModal isOpen={meetingstate==='isSchedulemeeting'} onClose={()=>{setmeetingstate(undefined)}}
             title='Create Meeting'className ='text-center' 
